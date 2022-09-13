@@ -41,7 +41,9 @@ function App() {
       <List todos={todos}
             setTodos={setTodos}
       />
-      <Footer />
+      <Footer todos={todos}
+              setTodos={setTodos}
+      />
 
     </div>
   ); 

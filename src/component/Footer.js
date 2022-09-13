@@ -1,19 +1,37 @@
-import React, { Component } from 'react'
+import React, { Component, useState } from 'react'
 
-const Footer = () => {
+const Footer = ({todos, setTodos}) => {
+
+ /*  const [checkAll, setCheckAll] = useState(false) 
+
+  const handleCheckAll = () => {
+    const checkAllTodos = [...todos].forEach( (todo) => {
+      todo.complete = !checkAll
+    })
+    setTodos(checkAllTodos)
+    setCheckAll(!checkAll)
+  } 
+ */
+  const deleteTodos = () => {
+    const deleteTodo = [...todos].filter( (todo) => todo.complete === false)
+    setTodos(deleteTodo)
+  }
+
     return (
         <div className='row'>
           <label>
-            <input type="checkbox" name="all" id="all"/>
+            <input type="checkbox" name="all" id="all" 
+                   //onClick={handleCheckAll} 
+                   //checked={checkAll}
+            />
             All
           </label>
           <p>
-            You have 0 to do
+            You have {todos.length} to do
           </p>
-          <span><i className="fa fa-trash-o" aria-hidden="true"></i></span>
-          {/* <button id='delete'>
-            Delete
-          </button> */}
+          <span onClick={deleteTodos}>
+            <i className="fa fa-trash-o" aria-hidden="true"></i>
+          </span>
       </div>
     )
 }

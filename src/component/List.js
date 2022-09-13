@@ -35,7 +35,7 @@ const List = ({todos, setTodos}) => {
                           checked={todo.complete}
                           handleCheckbox={()=>handleCheckbox(todo.id)}
                           handleEdit={handleEdit}
-                />
+                />          
             </div>
            )   
         })
