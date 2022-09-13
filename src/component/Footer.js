@@ -17,6 +17,11 @@ const Footer = ({todos, setTodos}) => {
     setTodos(deleteTodo)
   }
 
+  const linethroughTodo = () => {
+    const strikedTodo = [...todos].filter( (todo) => todo.complete === false)
+    return strikedTodo
+  }
+
     return (
         <div className='row'>
           <label>
@@ -27,7 +32,7 @@ const Footer = ({todos, setTodos}) => {
             All
           </label>
           <p>
-            You have {todos.length} to do
+            You have {linethroughTodo().length} to do
           </p>
           <span onClick={deleteTodos}>
             <i className="fa fa-trash-o" aria-hidden="true"></i>
