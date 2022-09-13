@@ -15,6 +15,16 @@ const List = ({todos, setTodos}) => {
         setTodos(newTodos) 
        }
 
+    const handleEdit = (id, updateTodo) => {
+        const todoToEdit = [...todos].map( (todo) => {
+            if (todo.id === id) {
+                todo.name = updateTodo
+            }
+            return todo
+        })
+        setTodos(todoToEdit)
+    }   
+
     return (
         todos.map( (todo) => {
            return (
@@ -24,6 +34,7 @@ const List = ({todos, setTodos}) => {
                           inputname={todo.name}
                           checked={todo.complete}
                           handleCheckbox={()=>handleCheckbox(todo.id)}
+                          handleEdit={handleEdit}
                 />
             </div>
            )   

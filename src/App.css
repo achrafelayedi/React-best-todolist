@@ -47,6 +47,7 @@ ul li{
   border: 1px solid #ccc;
   margin: 10px 0;
   padding: 10px;
+  display: flex;
   padding-bottom: 20px;
   justify-content: space-between;
   align-items: center;
@@ -71,9 +72,8 @@ ul li button,
   color: white;
   background-color: orange;
   padding: 5px 15px;
-  margin-left: 400px;
+  margin-left: 300px;
   cursor: pointer;
-  position: absolute;
 }
 
 ul li button:disabled {
@@ -93,9 +93,10 @@ label {
 }
 
 #delete {
+  display: flex;
   width: 120px;
   position: absolute;
-  margin-left: 62%;
+  margin-left: 31%;
   background-color: crimson;
 }
 
@@ -108,3 +109,10 @@ p {
   position: flex;
 }
 
+.fa-trash-o {
+  margin-left: 93%;
+  display: flex;
+  position: sticky;
+  cursor: pointer;
+  color: red;
+}
