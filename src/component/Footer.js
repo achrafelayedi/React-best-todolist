@@ -1,20 +1,11 @@
 import React, { Component, useState } from 'react'
 
-const Footer = ({todos, setTodos}) => {
+const Footer = ({todos, setTodos, checkAll, handleCheckAll, setCheckAll}) => {
 
- /*  const [checkAll, setCheckAll] = useState(false) 
-
-  const handleCheckAll = () => {
-    const checkAllTodos = [...todos].forEach( (todo) => {
-      todo.complete = !checkAll
-    })
-    setTodos(checkAllTodos)
-    setCheckAll(!checkAll)
-  } 
- */
   const deleteTodos = () => {
     const deleteTodo = [...todos].filter( (todo) => todo.complete === false)
     setTodos(deleteTodo)
+    setCheckAll(false)
   }
 
   const linethroughTodo = () => {
@@ -26,8 +17,8 @@ const Footer = ({todos, setTodos}) => {
         <div className='row'>
           <label>
             <input type="checkbox" name="all" id="all" 
-                   //onClick={handleCheckAll} 
-                   //checked={checkAll}
+                   onChange={handleCheckAll} 
+                   checked={checkAll}
             />
             All
           </label>

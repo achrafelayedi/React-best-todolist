@@ -10,6 +10,16 @@ function App() {
 
   const [todos, setTodos] = useState([])
   const [inputTodo, setInputTodo] = useState([])
+  const [checkAll, setCheckAll] = useState(false) 
+
+  const handleCheckAll = () => {
+    const handleAlltodos = [...todos]
+    handleAlltodos.forEach((todo) => {
+      todo.complete = !checkAll 
+    });
+    setTodos(handleAlltodos)
+    setCheckAll(!checkAll)
+  }
 
   const handleTodoInput = (evt) => {
     setInputTodo(evt.target.value)
@@ -43,6 +53,9 @@ function App() {
       />
       <Footer todos={todos}
               setTodos={setTodos}
+              checkAll={checkAll}
+              handleCheckAll={handleCheckAll}
+              setCheckAll={setCheckAll}
       />
 
     </div>
