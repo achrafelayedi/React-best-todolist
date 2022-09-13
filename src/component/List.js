@@ -1,7 +1,20 @@
 import React, { Component } from 'react'
 import ListItem from './ListItem'
+import { useState } from 'react'
 
-const List = ({todos}) => {
+const List = ({todos, setTodos}) => {
+
+    const handleCheckbox = (id) => {
+        const newTodos = [...todos]
+        newTodos.forEach( (todo) => {
+            if (todo.id === id) {
+                todo.complete = !todo.complete
+            }
+            return todo
+        })
+        setTodos(newTodos) 
+       }
+
     return (
         todos.map( (todo) => {
            return (
@@ -9,6 +22,8 @@ const List = ({todos}) => {
                 <ListItem 
                           id={todo.id}
                           inputname={todo.name}
+                          checked={todo.complete}
+                          handleCheckbox={()=>handleCheckbox(todo.id)}
                 />
             </div>
            )   

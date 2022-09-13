@@ -30,7 +30,7 @@ function App() {
 
   return (
     <div className="App">
-      
+
       <h1>What is it today?</h1>
 
       <FormInput todos={todos}
@@ -39,6 +39,7 @@ function App() {
                  addTodo={addTodo}
       />
       <List todos={todos}
+            setTodos={setTodos}
       />
       <Footer />
 
